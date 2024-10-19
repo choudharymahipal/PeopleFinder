@@ -11,3 +11,16 @@
   z-index: 1;
   display: block;
 }
+
+
+::-moz-selection { /* Code for Firefox */
+  color: red;
+  background: yellow;
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+
+
