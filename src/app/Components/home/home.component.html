@@ -8,11 +8,11 @@
             <div class="form-group">
                 <input class="form-control bigText" autofocus
                     placeholder="Type a name of person / email / mobile no..."
-                    type="text">
+                    type="text" id="personText" [formControl]="personText" />
             </div>
             <br>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Start scanning</button>
+                <button type="button" (click)="startScanning()" class="btn btn-primary">Start scanning</button>
             </div>
         </form>
 

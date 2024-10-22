@@ -15,6 +15,8 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { ViewResultComponent } from './Components/view-result/view-result.component';
 import { RegisterComponent } from './Shared/Components/register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { RegisterComponent } from './Shared/Components/register/register.compone
     ViewResultComponent,
     RegisterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CommonModule],
   providers: [AuthService, CommonService],
   bootstrap: [AppComponent],
 })
