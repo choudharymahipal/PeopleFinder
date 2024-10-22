@@ -6,10 +6,12 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { ViewResultComponent } from './Components/view-result/view-result.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { RegisterComponent } from './Shared/Components/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'change-password', component: ChangePasswordComponent },
   { path: 'settings', component: SettingsComponent },

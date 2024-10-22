@@ -14,6 +14,7 @@ import { SettingsComponent } from './Components/settings/settings.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { ViewResultComponent } from './Components/view-result/view-result.component';
+import { RegisterComponent } from './Shared/Components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ViewResultComponent } from './Components/view-result/view-result.compon
     ChangePasswordComponent,
     SearchResultComponent,
     ViewResultComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [AuthService, CommonService],
