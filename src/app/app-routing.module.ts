@@ -7,16 +7,21 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { ViewResultComponent } from './Components/view-result/view-result.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { RegisterComponent } from './Shared/Components/register/register.component';
+import { authGuard } from './Shared/Guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [authGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'change-password', component: ChangePasswordComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'view', component: ViewResultComponent },
-  { path: '**', redirectTo: '',pathMatch:'full' }
+  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [authGuard],
+  },
+  { path: 'settings', component: SettingsComponent, canActivate: [authGuard] },
+  { path: 'view', component: ViewResultComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
