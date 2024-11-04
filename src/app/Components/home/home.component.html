@@ -18,7 +18,7 @@
 
     </div>
 
-    <!-- Tables -->
+   <div *ngIf="peopleData.length > 0">
     <div class="row tall-row">
         <div class="col-lg-12">
             <h1>Dummy Data</h1>
@@ -38,58 +38,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Stark</td>
-                        <td>direwolf&#64;gmail.com</td>
-                        <td>46768786787</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Lannister</td>
-                        <td>lion&#64;gmail.com</td>
-                        <td>34345345</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Baratheon</td>
-                        <td>Stag&#64;yahoo.com</td>
-                        <td>3456</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Targaryen</td>
-                        <td>Dragon&#64;gmail.com</td>
-                        <td>123</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Martell</td>
-                        <td>piercedbyaspear&#64;gmail.com</td>
-                        <td>0989056744</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Tully</td>
-                        <td>Trout&#64;gmail.com</td>
-                        <td>6758694566</td>
-                        <td><a routerLink="/view">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Bolton</td>
-                        <td>Redflayedman&#64;gmail.com</td>
-                        <td>85969456</td>
+                    <tr *ngFor="let item of peopleData">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.mobileNo}}</td>
                         <td><a routerLink="/view">View</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+   </div>
+   
 
 </div>

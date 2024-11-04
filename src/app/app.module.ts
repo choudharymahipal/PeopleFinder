@@ -17,6 +17,8 @@ import { ViewResultComponent } from './Components/view-result/view-result.compon
 import { RegisterComponent } from './Shared/Components/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AboutComponent } from './Shared/Components/about/about.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,8 +33,15 @@ import { CommonModule } from '@angular/common';
     SearchResultComponent,
     ViewResultComponent,
     RegisterComponent,
+    AboutComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CommonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    CommonModule,
+    HttpClientModule,
+  ],
   providers: [AuthService, CommonService],
   bootstrap: [AppComponent],
 })
