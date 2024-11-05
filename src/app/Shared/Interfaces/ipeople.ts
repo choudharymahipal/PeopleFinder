@@ -3,6 +3,7 @@ export interface Ipeople {
   name: string;
   email: string;
   mobileNo: string;
+  imgUrl: string;
   completeAddress: icompleteAddress;
   occupation: ioccupation;
   socialLinks: isocialLinks;

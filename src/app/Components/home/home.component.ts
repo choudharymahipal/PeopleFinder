@@ -6,13 +6,14 @@ import { CommonService } from '../../Shared/Services/common.service';
 import { Ipeople } from '../../Shared/Interfaces/ipeople';
 
 @Component({
-  selector: 'app-home',
+  selector: 'mahi-home',
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  personText= new FormControl('');
-  peopleData:Ipeople[]=[];
+  personText= new FormControl('');  //contain search string
+  peopleData:Ipeople[]=[];  //all people data
+  personData!:Ipeople;  //single profile
 
   constructor(
     private authSvc:AuthService,
@@ -26,5 +27,9 @@ export class HomeComponent {
     this.commonSvc.getAllPeople().subscribe(res=>{
       this.peopleData = res;
     })
+  }
+
+  fillData(item:Ipeople){
+    this.personData = item;
   }
 }

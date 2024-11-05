@@ -3,7 +3,7 @@ import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'mahi-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

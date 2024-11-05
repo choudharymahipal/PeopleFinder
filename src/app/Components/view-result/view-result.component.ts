@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Ipeople } from '../../Shared/Interfaces/ipeople';
 
 @Component({
-  selector: 'app-view-result',
+  selector: 'mahi-view-result',
   templateUrl: './view-result.component.html',
-  styleUrl: './view-result.component.scss'
+  styleUrl: './view-result.component.scss',
 })
 export class ViewResultComponent {
+  @Input() personData!: Ipeople;
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }

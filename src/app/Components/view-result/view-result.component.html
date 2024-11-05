@@ -1,17 +1,4 @@
 <div class="container">
-    <div class="bs-component">
-        <ul class="breadcrumb">
-            <li><a routerLink="/">Home</a></li>
-            <li>Search</li>
-            <li class="active">View Result</li>
-        </ul>
-    </div>
-    <div class="row tall-row">
-        <div class="col-lg-12">
-            <h3>Profile</h3>
-            <hr>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <div class="col-md-4 col-lg-4 centerItem">
@@ -20,10 +7,12 @@
                 <div class="flip-box">
                     <div class="flip-box-inner">
                         <div class="flip-box-front">
-                            <img class="userProfileImg" src="./assets/img/user.jpg" />
+                            <img class="userProfileImg"
+                                src="{{personData.imgUrl}}" />
                         </div>
                         <div class="flip-box-back">
-                            <h2>Back Side</h2>
+                            <img class="userProfileImg"
+                                src="{{personData.imgUrl}}" />
                         </div>
                     </div>
                 </div>
@@ -33,44 +22,44 @@
                     <tbody>
                         <tr>
                             <td>Full Name</td>
-                            <td>Mahipal Singh Choudhary</td>
+                            <td>{{personData.name}}</td>
                         </tr>
                         <tr>
                             <td>Occupation</td>
-                            <td>Software Engineer</td>
+                            <td>{{personData.occupation.title}} - {{personData.occupation.department}}</td>
                         </tr>
                         <tr>
                             <td>Contact No.</td>
-                            <td>+91-7568787918</td>
+                            <td>{{personData.mobileNo}}</td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>mschoudhary81&#64;gmail.com</td>
+                            <td>{{personData.email}}</td>
                         </tr>
                         <tr>
                             <td>Address</td>
-                            <td>Jodhpur, Rajasthan, India</td>
+                            <td>{{personData.completeAddress.address}}, {{personData.completeAddress.city}}, {{personData.completeAddress.state}}, {{personData.completeAddress.country}}</td>
                         </tr>
                         <tr>
                             <td>Pin Code</td>
-                            <td>342005</td>
+                            <td>{{personData.completeAddress.pinCode}}</td>
                         </tr>
                         <tr>
                             <td>Website</td>
                             <td><a
-                                    href="https://sites.google.com/view/mahipalchoudhary"
-                                    target="_blank">https://sites.google.com/view/mahipalchoudhary</a></td>
+                                    href="{{personData.socialLinks.website}}"
+                                    target="_blank">{{personData.socialLinks.website}}</a></td>
                         </tr>
                         <tr>
                             <td>GitHub</td>
-                            <td><a href="https://github.com/choudharymahipal"
-                                    target="_blank">https://github.com/choudharymahipal</a></td>
+                            <td><a href="{{personData.socialLinks.gitHub}}"
+                                    target="_blank">{{personData.socialLinks.gitHub}}</a></td>
                         </tr>
                         <tr>
                             <td>LinkedIn</td>
                             <td><a
-                                    href="https://www.linkedin.com/in/mahipal-singh-choudhary-b0290494"
-                                    target="_blank">https://www.linkedin.com/in/mahipal-singh-choudhary-b0290494</a></td>
+                                    href="{{personData.socialLinks.linkedIn}}"
+                                    target="_blank">{{personData.socialLinks.linkedIn}}</a></td>
                         </tr>
 
                     </tbody>
@@ -83,4 +72,3 @@
 
     </div>
 </div>
-

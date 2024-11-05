@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {environment} from '../../../environments/environment';
 import { AuthService } from '../../Shared/Services/auth.service';
 @Component({
-  selector: 'app-profile',
+  selector: 'mahi-profile',
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
