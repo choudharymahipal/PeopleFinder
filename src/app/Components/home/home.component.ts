@@ -11,25 +11,27 @@ import { Ipeople } from '../../Shared/Interfaces/ipeople';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  personText= new FormControl('');  //contain search string
-  peopleData:Ipeople[]=[];  //all people data
-  personData!:Ipeople;  //single profile
+  personText = new FormControl(''); //contain search string
+  peopleData: Ipeople[] = []; //all people data
+  personData!: Ipeople; //single profile
+  modalHeader: string = '';
 
   constructor(
-    private authSvc:AuthService,
-    private router:Router,
-    private commonSvc:CommonService
+    private authSvc: AuthService,
+    private router: Router,
+    private commonSvc: CommonService
   ) {
     console.log(this.authSvc.isLoggedIn);
   }
 
   startScanning() {
-    this.commonSvc.getAllPeople().subscribe(res=>{
+    this.commonSvc.getAllPeople().subscribe((res) => {
       this.peopleData = res;
-    })
+    });
   }
 
-  fillData(item:Ipeople){
+  fillData(item: Ipeople) {
     this.personData = item;
+    this.modalHeader = item.name;
   }
 }

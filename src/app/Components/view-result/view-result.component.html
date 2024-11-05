@@ -1,74 +1,76 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 col-lg-12">
-            <div class="col-md-4 col-lg-4 centerItem">
-                <!-- <img class="userProfileImg" src="./assets/img/user.jpg" /> -->
-                <br>
-                <div class="flip-box">
-                    <div class="flip-box-inner">
-                        <div class="flip-box-front">
-                            <img class="userProfileImg"
-                                src="{{personData.imgUrl}}" />
-                        </div>
-                        <div class="flip-box-back">
-                            <img class="userProfileImg"
-                                src="{{personData.imgUrl}}" />
-                        </div>
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="col-md-4 col-lg-4 centerItem">
+            <!-- <img class="userProfileImg" src="./assets/img/user.jpg" /> -->
+            <br>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img class="userProfileImg"
+                            src="{{personData.imgUrl}}" />
+                    </div>
+                    <div class="flip-box-back">
+                        <img class="userProfileImg"
+                            src="{{personData.imgUrl}}" />
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-lg-8">
-                <table class="table table-striped table-hover">
-                    <tbody>
-                        <tr>
-                            <td>Full Name</td>
-                            <td>{{personData.name}}</td>
-                        </tr>
-                        <tr>
-                            <td>Occupation</td>
-                            <td>{{personData.occupation.title}} - {{personData.occupation.department}}</td>
-                        </tr>
-                        <tr>
-                            <td>Contact No.</td>
-                            <td>{{personData.mobileNo}}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{{personData.email}}</td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td>{{personData.completeAddress.address}}, {{personData.completeAddress.city}}, {{personData.completeAddress.state}}, {{personData.completeAddress.country}}</td>
-                        </tr>
-                        <tr>
-                            <td>Pin Code</td>
-                            <td>{{personData.completeAddress.pinCode}}</td>
-                        </tr>
-                        <tr>
-                            <td>Website</td>
-                            <td><a
-                                    href="{{personData.socialLinks.website}}"
-                                    target="_blank">{{personData.socialLinks.website}}</a></td>
-                        </tr>
-                        <tr>
-                            <td>GitHub</td>
-                            <td><a href="{{personData.socialLinks.gitHub}}"
-                                    target="_blank">{{personData.socialLinks.gitHub}}</a></td>
-                        </tr>
-                        <tr>
-                            <td>LinkedIn</td>
-                            <td><a
-                                    href="{{personData.socialLinks.linkedIn}}"
-                                    target="_blank">{{personData.socialLinks.linkedIn}}</a></td>
-                        </tr>
+        </div>
+        <div class="col-md-8 col-lg-8">
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <td>Full Name_</td>
+                        <td>{{personData.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Occupation_</td>
+                        <td>{{personData.occupation.title}} -
+                            {{personData.occupation.department}}</td>
+                    </tr>
+                    <tr>
+                        <td>Contact No_</td>
+                        <td>{{personData.mobileNo}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email_</td>
+                        <td>{{personData.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address_</td>
+                        <td>{{personData.completeAddress.address}},
+                            {{personData.completeAddress.city}},
+                            {{personData.completeAddress.state}},
+                            {{personData.completeAddress.country}}</td>
+                    </tr>
+                    <tr>
+                        <td>Pin Code_</td>
+                        <td>{{personData.completeAddress.pinCode}}</td>
+                    </tr>
+                    <tr>
+                        <td>Website_</td>
+                        <td><a
+                                href="{{personData.socialLinks.website}}"
+                                target="_blank">{{personData.socialLinks.website}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>GitHub_</td>
+                        <td><a href="{{personData.socialLinks.gitHub}}"
+                                target="_blank">{{personData.socialLinks.gitHub}}</a></td>
+                    </tr>
+                    <tr>
+                        <td>LinkedIn_</td>
+                        <td><a
+                                href="{{personData.socialLinks.linkedIn}}"
+                                target="_blank">{{personData.socialLinks.linkedIn}}</a></td>
+                    </tr>
 
-                    </tbody>
-                </table>
-            </div>
-            <!-- <div class="col-md-12 col-lg-12">
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="col-md-12 col-lg-12">
                 <p>Something more text </p>
             </div> -->
-        </div>
-
     </div>
+
 </div>
