@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Mahipal Choudhary",
+    "email": "mschoudhary81@gmail.com",
+    "mobileNo": "+91-7568787918",
+    "completeAddress": {
+      "address": "Karni Nagar",
+      "city": "Jodhpur",
+      "state": "Rajasthan",
+      "country": "India",
+      "pinCode": "342005"
+    },
+    "occupation": {
+      "title": "Software Engineer",
+      "department": "Information Technology"
+    },
+    "socialLinks": {
+      "website": "https://sites.google.com/view/mahipalchoudhary",
+      "gitHub": "https://github.com/choudharymahipal",
+      "linkedIn": "https://www.linkedin.com/in/mahipal-singh-choudhary-b0290494",
+      "instagram": "",
+      "facebook": ""
+    }
+  }
+]
