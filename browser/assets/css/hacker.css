@@ -5915,11 +5915,10 @@ a.list-group-item-danger.active:focus {
 }
 .close {
     float: right;
-    font-size: 21px;
+    font-size: 25px;
     font-weight: bold;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
+    color: white;
     opacity: 0.2;
     filter: alpha(opacity=20);
 }
@@ -5949,7 +5948,7 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1050;
+    z-index: 1000;
     -webkit-overflow-scrolling: touch;
     outline: 0;
 }
@@ -5982,7 +5981,6 @@ button.close {
     position: relative;
     background-color: #3c3c3c;
     border: 1px solid #999;
-    border: 1px solid transparent;
     border-radius: 0;
     -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
@@ -5995,7 +5993,7 @@ button.close {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 1040;
+    z-index: 1000;
     background-color: #222;
 }
 .modal-backdrop.fade {
