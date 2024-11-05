@@ -6,3 +6,8 @@
 .paddingLess{
     padding: 0px 100px 0px 100px;
 }
+
+.heightLimit{
+    max-height: 400px;
+    overflow-y: scroll;
+}
