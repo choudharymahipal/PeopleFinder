@@ -1,3 +1,1 @@
-.safeZone{
-    padding: 80px 0px 80px 0px;
-}
+.safeZone { min-height: calc(100vh - 120px); }

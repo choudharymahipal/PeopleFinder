@@ -7,6 +7,8 @@ export interface Ipeople {
   completeAddress: icompleteAddress;
   occupation: ioccupation;
   socialLinks: isocialLinks;
+  sourceUrl?: string;
+  updatedAt?: string;
 }
 
 export interface icompleteAddress {

@@ -1,20 +1,53 @@
-<div class="container">
-    <div class="bs-component">
-        <ul class="breadcrumb">
-            <li><a routerLink="/">Home</a></li>
-            <li>About this App</li>
-        </ul>
-    </div>
-    <div class="row tall-row">
-        <div class="col-lg-12">
-            <h3>About Us</h3>
-            <hr>
+<main class="about-page">
+    <section class="about-hero" aria-labelledby="about-title">
+        <div class="about-intro">
+            <p class="eyebrow"><span class="status-dot"></span> ABOUT PEOPLE/INDEX</p>
+            <h1 id="about-title">People records,<br><span>with context.</span></h1>
+            <p class="about-lede">A locally maintained index for public-source information, with provenance kept in view.</p>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>about works!</p>
+        <div class="archive-stamp" aria-label="Local archive">
+            <span>ARCHIVE MODE</span>
+            <strong>LOCAL</strong>
+            <span><i></i> NO SERVER SYNC</span>
         </div>
+    </section>
+
+    <section class="about-row" aria-labelledby="origin-title">
+        <p class="row-index">01 <span>/</span> RECORD ORIGIN</p>
+        <div class="row-copy">
+            <h2 id="origin-title">A reference index, not an authority.</h2>
+            <p>People/Index organizes details gathered from public sources. Seed entries are bundled as local JSON; entries added or edited in the app are stored in this browser. The app does not automatically collect information from other sites.</p>
+        </div>
+    </section>
+
+    <section class="about-row" aria-labelledby="source-title">
+        <p class="row-index">02 <span>/</span> SOURCE TRAIL</p>
+        <div class="row-copy">
+            <h2 id="source-title">Keep the source close to the record.</h2>
+            <p>New and edited entries require a public source URL and receive a local update date. Some bundled seed entries may not have a citation. A link records where information came from; it does not confirm identity, accuracy, or that the information is current.</p>
+        </div>
+    </section>
+
+    <section class="about-row" aria-labelledby="storage-title">
+        <p class="row-index">03 <span>/</span> DATA BOUNDARY</p>
+        <div class="row-copy">
+            <h2 id="storage-title">Your browser holds the local archive.</h2>
+            <p>Changes are saved in browser storage on this device. They are not encrypted, backed up, or shared with other devices. Clearing this site's browser data removes locally added records and edits; the bundled seed entries remain available.</p>
+        </div>
+    </section>
+
+    <section class="responsible-note" aria-labelledby="care-title">
+        <span class="note-mark" aria-hidden="true">!</span>
+        <div>
+            <p class="eyebrow">RESPONSIBLE USE</p>
+            <h2 id="care-title">Public does not always mean harmless.</h2>
+            <p>Keep records relevant, sourced, and respectful. Avoid storing sensitive personal details, and verify information independently before relying on it.</p>
+        </div>
+    </section>
+
+    <div class="about-endcap">
+        <span>PEOPLE/INDEX <span class="endcap-divider">//</span> PUBLIC RECORD WORKSPACE</span>
+        <a routerLink="/">RETURN TO INDEX <span aria-hidden="true">↗</span></a>
     </div>
-</div>
+</main>
 

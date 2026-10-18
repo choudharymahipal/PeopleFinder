@@ -1,78 +1,112 @@
-<div class="container">
+<main class="registry-shell">
+    <section class="registry-intro" aria-labelledby="page-title">
+        <div class="intro-copy">
+            <p class="eyebrow"><span class="status-dot"></span> LOCAL INTELLIGENCE INDEX</p>
+            <h1 id="page-title">People <span>index</span></h1>
+            <p class="intro-note">A searchable workspace for sourced, public records.</p>
+        </div>
+        <div class="index-stat" aria-label="Total records">
+            <span class="stat-value">{{ allPeople.length | number:'2.0' }}</span>
+            <span class="stat-label">RECORDS IN INDEX</span>
+        </div>
+    </section>
 
-    <!-- Jumbotron -->
-    <div class="jumbotron text-center">
-        <h1 class="typewriter">Search_</h1>
-        <br>
-        <form class="bs-component paddingLess">
-            <div class="form-group">
-                <input class="form-control bigText" autofocus
-                    placeholder="Type a name of person / email / mobile no..."
-                    type="text" id="personText" [formControl]="personText" />
+    <section class="search-panel" aria-label="Search records">
+        <label for="record-search" class="eyebrow">QUERY THE INDEX</label>
+        <div class="search-row">
+            <span class="search-mark" aria-hidden="true">⌕</span>
+            <input id="record-search" type="search" autocomplete="off"
+                placeholder="Name, occupation, email, city, social account..."
+                [formControl]="personText" (input)="filterPeople()" />
+            <button class="clear-search" type="button" *ngIf="personText.value"
+                (click)="personText.setValue(''); filterPeople()" aria-label="Clear search">×</button>
+            <span class="key-hint">LIVE SEARCH</span>
+        </div>
+        <div class="search-meta">
+            <span>{{ peopleData.length }} {{ peopleData.length === 1 ? 'MATCH' : 'MATCHES' }}</span>
+            <span class="meta-separator">/</span>
+            <span>SEARCHES ALL RECORD FIELDS</span>
+            <button class="add-toggle" type="button" (click)="toggleRecordForm()">
+                <span aria-hidden="true">{{ showAddForm ? '−' : '+' }}</span>
+                {{ showAddForm ? 'CLOSE FORM' : 'ADD RECORD' }}
+            </button>
+        </div>
+    </section>
+
+    <section class="add-panel" *ngIf="showAddForm" aria-labelledby="add-title">
+        <div class="section-heading">
+            <div><p class="eyebrow">LOCAL ENTRY</p><h2 id="add-title">{{ editingPersonId === null ? 'Add a sourced record' : 'Edit sourced record' }}</h2></div>
+            <span class="source-required">SOURCE URL REQUIRED</span>
+        </div>
+        <form [formGroup]="recordForm" (ngSubmit)="addPerson()">
+            <div class="form-grid">
+                <label class="field field-wide">Full name <input formControlName="name" autocomplete="name" required /></label>
+                <label class="field">Occupation <input formControlName="occupationTitle" /></label>
+                <label class="field">Department <input formControlName="department" /></label>
+                <label class="field">Email <input type="email" formControlName="email" autocomplete="email" /></label>
+                <label class="field">Phone <input type="tel" formControlName="mobileNo" autocomplete="tel" /></label>
+                <label class="field">City <input formControlName="city" /></label>
+                <label class="field">Country <input formControlName="country" /></label>
+                <label class="field field-wide">Public source URL <input type="url" formControlName="sourceUrl" placeholder="https://" required /></label>
+                <label class="field">Website <input type="url" formControlName="website" placeholder="https://" /></label>
+                <label class="field">GitHub <input type="url" formControlName="gitHub" placeholder="https://" /></label>
+                <label class="field">LinkedIn <input type="url" formControlName="linkedIn" placeholder="https://" /></label>
+                <label class="field">Instagram <input type="url" formControlName="instagram" placeholder="https://" /></label>
+                <label class="field">Facebook <input type="url" formControlName="facebook" placeholder="https://" /></label>
+                <label class="field">Street address <input formControlName="address" /></label>
+                <label class="field">State / region <input formControlName="state" /></label>
+                <label class="field">Postal code <input formControlName="pinCode" /></label>
             </div>
-            <br>
-            <div class="form-group">
-                <button type="button" (click)="startScanning()"
-                    class="btn btn-primary">Start scanning_</button>
+            <p class="form-error" *ngIf="addError" role="alert">{{ addError }}</p>
+            <p class="form-error" *ngIf="recordForm.controls.sourceUrl.touched && recordForm.controls.sourceUrl.invalid" role="alert">Enter a valid public source beginning with http:// or https://.</p>
+            <div class="form-actions">
+                <span>Stored only in this browser. Add information you are authorized to retain.</span>
+                <button class="primary-button" type="submit">SAVE TO LOCAL INDEX <span aria-hidden="true">↗</span></button>
             </div>
         </form>
+    </section>
 
-    </div>
-
-    <div *ngIf="peopleData.length > 0">
-        <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-striped table-hover ">
-                    <thead>
-                        <tr>
-                            <th>Pid_</th>
-                            <th>Name_</th>
-                            <th>Email_</th>
-                            <th>Mobile_</th>
-                            <th>Action_</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of peopleData">
-                            <td>{{item.id}}</td>
-                            <td>{{item.name}}</td>
-                            <td>{{item.email}}</td>
-                            <td>{{item.mobileNo}}</td>
-                            <td>
-                                <!-- <a routerLink="/view">View</a> -->
-                                <button type="button"
-                                    class="btn btn-primary btn-sm"
-                                    data-toggle="modal"
-                                    data-target="#myModal"
-                                    (click)="fillData(item)">View_</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <section class="records-section" aria-labelledby="records-title">
+        <div class="section-heading">
+            <div><p class="eyebrow">DATABASE // {{ allPeople.length | number:'2.0' }} ENTRIES</p><h2 id="records-title">Record results</h2></div>
+            <span class="sort-label">SORTED BY NAME <span aria-hidden="true">↓</span></span>
         </div>
-    </div>
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close"
-                        data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">{{modalHeader}}'s profile_</h4>
-                </div>
-                <div class="modal-body heightLimit">
-                    <mahi-view-result
-                        [personData]="personData"></mahi-view-result>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                        data-dismiss="modal">Close_</button>
-                        <button type="button" class="btn btn-primary">Print_</button>
-                </div>
-            </div>
-
+        <div class="loading-state" *ngIf="isLoading">Connecting to the local index<span class="loading-cursor">_</span></div>
+        <div class="empty-state" *ngIf="loadError" role="alert">The record index could not be loaded. Check that the local JSON file is available, then reload.</div>
+        <div class="empty-state" *ngIf="!isLoading && !loadError && peopleData.length === 0">
+            <span class="empty-code">NO_MATCH</span><p>No records match this query.</p>
+            <button type="button" (click)="personText.setValue(''); filterPeople()">CLEAR QUERY</button>
         </div>
-    </div>
+        <div class="record-list" *ngIf="!isLoading && peopleData.length > 0">
+            <article class="record-row" *ngFor="let person of peopleData; let index = index">
+                <span class="record-index">{{ (index + 1) | number:'2.0' }}</span>
+                <div class="record-identity">
+                    <span class="record-name">{{ person.name }}</span>
+                    <span class="record-role">{{ person.occupation.title || 'Occupation not listed' }}<ng-container *ngIf="person.occupation.department"> · {{ person.occupation.department }}</ng-container></span>
+                </div>
+                <span class="record-location">{{ person.completeAddress.city || 'Location not listed' }}<ng-container *ngIf="person.completeAddress.country">, {{ person.completeAddress.country }}</ng-container></span>
+                <span class="record-source" [class.has-source]="person.sourceUrl">{{ person.sourceUrl ? 'SOURCE LINKED' : 'SEED RECORD' }}</span>
+                <div class="row-actions">
+                    <button class="view-button" type="button" (click)="openRecord(person)" [attr.aria-label]="'View record for ' + person.name">OPEN <span aria-hidden="true">↗</span></button>
+                    <button class="edit-button" type="button" (click)="editPerson(person)" [attr.aria-label]="'Edit record for ' + person.name">EDIT</button>
+                </div>
+            </article>
+        </div>
+    </section>
+    <p class="privacy-note">Publicly available information can still be sensitive. Keep source links attached and verify records before use.</p>
+</main>
+
+<div class="dialog-backdrop" *ngIf="selectedPerson" (click)="closeRecord()">
+    <section class="record-dialog" role="dialog" aria-modal="true" [attr.aria-label]="selectedPerson.name + ' record'" (click)="$event.stopPropagation()" tabindex="-1">
+        <div class="dialog-heading">
+            <div><p class="eyebrow">PERSON RECORD // #{{ selectedPerson.id }}</p><h2>{{ selectedPerson.name }}</h2></div>
+            <button class="icon-button" type="button" (click)="closeRecord()" aria-label="Close record">×</button>
+        </div>
+        <mahi-view-result [personData]="selectedPerson"></mahi-view-result>
+        <div class="dialog-actions">
+            <button class="secondary-button" type="button" (click)="editPerson(selectedPerson)">EDIT RECORD</button>
+            <button class="secondary-button" type="button" (click)="closeRecord()">CLOSE</button>
+            <button class="primary-button" type="button" (click)="printRecord()">PRINT RECORD <span aria-hidden="true">↗</span></button>
+        </div>
+    </section>
 </div>

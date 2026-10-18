@@ -1,5 +1,10 @@
-.fixNav {
-  width: 100%;
-  position: fixed;
-  top: 0;
-}
+.app-header { position: sticky; z-index: 10; top: 0; display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: 0 max(30px, calc((100vw - 1120px) / 2)); border-bottom: 1px solid var(--line); background: #101512ed; backdrop-filter: blur(12px); }
+.brand-mark { display: inline-flex; align-items: center; gap: 10px; color: var(--paper); font: 600 12px var(--mono); text-decoration: none; }
+.brand-symbol { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--acid); color: var(--acid); font-size: 15px; }
+.brand-accent { color: var(--acid); }
+.app-header nav { display: flex; align-items: center; gap: 28px; height: 64px; }
+.app-header nav a { display: grid; align-items: center; height: 100%; border-bottom: 2px solid transparent; color: var(--muted); font-size: 12px; text-decoration: none; }
+.app-header nav a:hover, .app-header nav a.active { border-color: var(--acid); color: var(--paper); }
+.header-status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font: 600 9px var(--mono); letter-spacing: .08em; }
+.header-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+@media (max-width: 560px) { .app-header { min-height: 58px; padding: 0 18px; } .app-header nav { gap: 16px; height: 58px; } .header-status { display: none; } }

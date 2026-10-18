@@ -1,49 +1,17 @@
-.userProfileImg {
-  width: 100%;
-  height: 100%;
-}
-
-.centerItem {
-  text-align: center;
-}
-
-.flip-box {
-  background-color: transparent;
-  width: 270px;
-  height: 300px;
-  perspective: 1000px;
-}
-
-.flip-box-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-box:hover .flip-box-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-box-front,
-.flip-box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.flip-box-front {
-  background-color: #111010;
-  color: black;
-}
-
-.flip-box-back {
-  background-color: rgb(20, 20, 21);
-  color: white;
-  transform: rotateY(180deg);
-}
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; }
+.detail-group { padding: 17px 0; border-bottom: 1px solid var(--line); }
+.detail-group .eyebrow, .source-detail .eyebrow { margin: 0 0 12px; color: var(--acid); font: 600 10px/1.5 var(--mono); letter-spacing: .08em; }
+.detail-group dl { display: grid; gap: 11px; margin: 0; }
+.detail-group dl div { display: grid; grid-template-columns: minmax(90px, .75fr) 1.25fr; gap: 12px; }
+.detail-group dt, .detail-group dd { margin: 0; overflow-wrap: anywhere; font-size: 12px; }
+.detail-group dt, .not-listed { color: var(--muted); }
+.detail-group dd { color: var(--paper); }
+.social-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.social-list a { display: inline-flex; gap: 10px; padding: 8px 10px; border: 1px solid var(--line); color: var(--paper); font-size: 11px; text-decoration: none; }
+.social-list a span, .source-detail a span { color: var(--acid); }
+.social-list a:hover { border-color: var(--acid); }
+.not-listed { align-self: center; font-size: 12px; }
+.source-detail { display: grid; justify-items: start; gap: 5px; padding-top: 17px; }
+.source-detail a { color: var(--teal); font-size: 12px; }
+.source-detail > span, .source-detail small { color: var(--muted); font-size: 11px; }
+@media (max-width: 560px) { .detail-grid { grid-template-columns: 1fr; } }
